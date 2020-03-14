@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 01</title>
+</head>
+<body>
+    <button class="clique">Clique</button>
+    <script>
+        var btnClique = document.querySelector('button.clique');
+
+        btnClique.onclick = function() {
+            var quadradoElement = document.createElement('div');
+
+            quadradoElement.style.backgroundColor = '#f00';
+            quadradoElement.style.color = "purple";
+            quadradoElement.style.width = '100px';
+            quadradoElement.style.height = '100px';
+
+            document.body.appendChild(quadradoElement);
+        }
+    </script>
+</body>
+</html>
