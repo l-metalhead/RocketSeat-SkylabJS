@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 02</title>
+</head>
+<body>
+    <button class="btnQuadrado">Clique</button>
+    <div class="quadrado"></div>
+    <script>
+        var btnClique = document.querySelector('button.btnQuadrado');
+
+        btnClique.onclick = function() {
+            var quadradoElement = document.createElement('div');
+
+            quadradoElement.style.backgroundColor = 'red';
+            quadradoElement.style.width = '100px';
+            quadradoElement.style.height = '100px';
+
+            var quadrado = document.querySelector('div.quadrado');
+            quadrado.appendChild(quadradoElement);
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            
+            return color;
+        }
+            
+        var newColor = getRandomColor(); // #E943F0
+        var quadrado = document.querySelector('div.quadrado');
+
+        quadrado.onmouseover = function() {
+            quadrado.style.backgroundColor = newColor;
+        }
+
+    </script>
+</body>
+</html>
