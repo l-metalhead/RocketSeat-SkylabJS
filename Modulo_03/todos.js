@@ -2,11 +2,8 @@ var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
-var todos = [
-    "Fazer café",
-    "Estudar Javascript",
-    "Acessar a comunidade Rocketseat"
-]
+// Carrega array atraves do metodo parse, com itens do storage
+var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
 
 function renderTodos() {
     listElement.innerHTML = '';  // Reseta a lista
@@ -24,7 +21,6 @@ function renderTodos() {
         todoElement.appendChild(todoText);
         todoElement.appendChild(linkElement);
         listElement.appendChild(todoElement);
-
     }
 }
 
@@ -36,6 +32,7 @@ function addTodo() {
     todos.push(todoText);
     inputElement.value = '';
     renderTodos();
+    saveToStorage();
 }
 
 buttonElement.onclick = addTodo;
@@ -43,4 +40,11 @@ buttonElement.onclick = addTodo;
 function deleteTodo(pos) {
     todos.splice(pos, 1);
     renderTodos();
+    saveToStorage();
+}
+
+function saveToStorage() {
+    // localStorage -> variavel global com chave-valor
+    // JSON -> Objeto em JS no formato de String
+    localStorage.setItem('list_todos', JSON.stringify(todos));
 }
