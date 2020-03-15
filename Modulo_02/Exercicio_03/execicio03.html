@@ -11,12 +11,13 @@
         var nomes = ["Diego", "Gabriel", "Lucas"];
 
         var listaNomes = document.createElement('ul');
+        document.body.appendChild(listaNomes);
         for(nome of nomes) {
             var itemNome = document.createTextNode(nome);
             var liElement = document.createElement('li');
 
             liElement.appendChild(itemNome);
-            document.body.appendChild(liElement);
+            listaNomes.appendChild(liElement);
         }
     </script>
 </body>

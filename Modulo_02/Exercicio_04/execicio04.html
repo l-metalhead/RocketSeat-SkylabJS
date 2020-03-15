@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 03</title>
+</head>
+<body>
+    <input type="text" name="nome">
+    <button id="adicionar">Adicionar</button>
+
+    <script>
+        var btnAdicionar = document.querySelector('button#adicionar');
+        var nomes = [];
+
+        var ulElement = document.createElement('ul');
+        document.body.appendChild(ulElement);
+
+        function listaNomes(nomes) {
+            var itemNome = document.createTextNode(nomes[nomes.length - 1]);
+            var liNome = document.createElement("li");
+
+            liNome.setAttribute('class', 'liNomes');
+            liNome.appendChild(itemNome);
+            ulElement.appendChild(liNome);
+        }
+
+        btnAdicionar.onclick = function() {
+            var inputElement = document.querySelector('input');
+            var liNomesElement = document.querySelector('li.linomes');
+
+            nomes.push(inputElement.value);
+            listaNomes(nomes);
+            inputElement.appendChild(document.createTextNode(''));
+        }
+    </script>
+</body>
+</html>
